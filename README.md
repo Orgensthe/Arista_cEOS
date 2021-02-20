@@ -1,5 +1,8 @@
 # Arista_cEOS
 
+### This is a guide on how to create Arista cEOS and build a topology with it.
+
+
 ## 1. Download cEOS image from Arista website and import into docker
 ```
 [root@beta-control-01 Downloads]# docker import cEOS64-lab-4.25.1F.tar.xz  ceos:4.25.1F
