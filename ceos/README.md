@@ -1,2 +1,0 @@
-# cEOS
-# Arista_cEOS
