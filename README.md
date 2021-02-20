@@ -30,6 +30,7 @@ Hardware MAC address: 0242.ac22.bd71
 System MAC address: 0242.ac22.bd71
 
 Software image version: 4.25.1F-20005270.4251F (engineering build)
+
 Architecture: x86_64
 Internal build version: 4.25.1F-20005270.4251F
 Internal build ID: 37a9ea6d-2c81-487d-9c86-579348318c0a
@@ -42,4 +43,18 @@ Total memory: 263618792 kB
 Free memory: 251252600 kB
 
 localhost(config)#
+```
+
+# OR You can use the docker-compose file in /ceos folder to create a 5 nodes leaf-spine topopology automatically
+
+```
+# rebuild the docker container, this will wipe out all configurations
+[root@beta-control-01 ceos]# docker-compose  up -d 
+
+# restart container without loss configuration
+[root@beta-control-01 ceos]# docker-compose  stop
+[root@beta-control-01 ceos]# docker-compose  start
+
+# wipe out everything
+[root@beta-control-01 ceos]# docker-compose  down
 ```
