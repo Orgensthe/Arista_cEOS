@@ -1,0 +1,151 @@
+version: '3'                                                                                                                    
+services:                                                                                                                       
+  ceos-1:                                                                                                                       
+    hostname: CEOS-1                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                       
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0 
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab                                                                                                      
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MGMT_INTF: eth0
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      r1r4:
+      r1r5:                                                                                                                   
+      vm1:
+  ceos-2:                                                                                                                       
+    hostname: CEOS-2                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      r2r4:                                                                                                                  
+      r2r5:
+      vm2:
+  ceos-3:                                                                                                                       
+    hostname: CEOS-3                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      r3r4:
+      r3r5:
+      vm3:
+  ceos-4:                                                                                                                       
+    hostname: CEOS-4                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      r1r4:
+      r2r4:
+      r3r4:
+  ceos-5:                                                                                                                       
+    hostname: CEOS-r5                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      r1r5:
+      r2r5:
+      r3r5:
+  vm-1:                                                                                                                       
+    hostname: vm-1                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      vm1:
+  vm-2:                                                                                                                       
+    hostname: vm-2                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      vm2:
+  vm-3:                                                                                                                       
+    hostname: vm-3                                                                                                            
+    image: 'ceos:4.25.1F'                                                                                                      
+    command: /sbin/init systemd.setenv=INTFTYPE=eth systemd.setenv=ETBA=4 systemd.setenv=SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT=1 systemd.setenv=CEOS=1 systemd.setenv=EOS_PLATFORM=ceoslab systemd.setenv=container=docker systemd.setenv=MAPETH0=1 systemd.setenv=MGMT_INTF=eth0
+    privileged: true                                                                                                            
+    environment:                                                                                                                
+      container: docker                                                                                                         
+      CEOS: 1                                                                                                                   
+      EOS_PLATFORM: ceoslab
+      SKIP_ZEROTOUCH_BARRIER_IN_SYSDBINIT: 1                                                                                    
+      ETBA: 4                                                                                                                   
+      INTFTYPE: eth
+      MAPETH0: 1
+    networks:                                                                                                                   
+      default:                                                                                                                  
+      vm3:
+networks:                                                                                                                       
+  r1r4:
+  r1r5:
+  r2r4:
+  r2r5:
+  r3r4:
+  r3r5:
+  vm1:
+  vm2:
+  vm3:
